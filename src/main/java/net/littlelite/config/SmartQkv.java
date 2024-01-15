@@ -6,7 +6,7 @@
  */
 
 
-package config;
+package net.littlelite.config;
 
 import io.smallrye.config.ConfigMapping;
 import io.smallrye.config.WithDefault;

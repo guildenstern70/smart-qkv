@@ -7,12 +7,13 @@
 
 package net.littlelite.service;
 
-import config.SmartQkv;
+import net.littlelite.config.SmartQkv;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.StartupEvent;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
+import net.littlelite.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,10 @@ public class Startup
     @Inject
     private SmartQkv smartqkv;
 
-    private static final Logger LOG = LoggerFactory.getLogger("Startup");
+    @Inject
+    private DbInitializer dbInitializer;
+
+    private static final Logger LOG = LoggerFactory.getLogger(Startup.class);
 
     void onStart(@Observes StartupEvent ev)
     {
@@ -31,6 +35,8 @@ public class Startup
         LOG.info("  JVM: " + System.getProperty("java.vendor") + " " + System.getProperty("java.version"));
         LOG.info("  Listening on: http://localhost:8080");
         LOG.info("*****************************************************************");
+
+        this.dbInitializer.populateDb();
     }
 
     void onStop(@Observes ShutdownEvent ev)
