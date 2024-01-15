@@ -27,7 +27,7 @@ public class Book extends PanacheMongoEntity
 
     public Status status;
 
-    public List<Author> authorList = new ArrayList<>();
+    public final List<Author> authorList = new ArrayList<>();
 
     public static Book findByIsbn(String isbn)
     {

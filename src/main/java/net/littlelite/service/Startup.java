@@ -13,7 +13,6 @@ import io.quarkus.runtime.StartupEvent;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
-import net.littlelite.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,10 +20,10 @@ import org.slf4j.LoggerFactory;
 public class Startup
 {
     @Inject
-    private SmartQkv smartqkv;
+    SmartQkv smartqkv;
 
     @Inject
-    private DbInitializer dbInitializer;
+    DbInitializer dbInitializer;
 
     private static final Logger LOG = LoggerFactory.getLogger(Startup.class);
 
