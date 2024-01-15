@@ -1,0 +1,17 @@
+smartqkv:
+  version: 0.0.1
+quarkus:
+  banner:
+    path: banner.txt
+  console:
+    color: true
+  log:
+    level: INFO
+    console:
+      enable: true
+      format: "%d{HH:mm:ss} %-5p [%c{2.}] %s%e%n"
+      level: DEBUG
+  mongodb:
+    connection-string: mongodb+srv://guildenstern70:qLKmatt07@cluster0.eefq0.mongodb.net/?retryWrites=true&w=majority
+    database: smartqkv
+
