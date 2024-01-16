@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @MongoEntity(collection="books")
 public class Book extends PanacheMongoEntity
 {
@@ -27,31 +28,6 @@ public class Book extends PanacheMongoEntity
 
     public Status status;
 
-    public final List<Author> authorList = new ArrayList<>();
-
-    public static Book findByIsbn(String isbn)
-    {
-        return find("isbn", isbn).firstResult();
-    }
-
-    public static List<Book> findByStatusAvailable()
-    {
-        return list("status", Status.AVAILABLE);
-    }
-
-    public static long getSize()
-    {
-        return count();
-    }
-
-    public static void deleteByIsbn(String isbn)
-    {
-        delete("isbn", isbn);
-    }
-
-    public static void create(Book book)
-    {
-        book.persist();
-    }
+    public List<Author> authorList;
 
 }

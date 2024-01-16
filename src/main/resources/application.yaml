@@ -14,4 +14,17 @@ quarkus:
   mongodb:
     connection-string: mongodb+srv://guildenstern70:qLKmatt07@cluster0.eefq0.mongodb.net/?retryWrites=true&w=majority
     database: smartqkv
-
+mp:
+  openapi:
+    extensions:
+      smallrye:
+        info:
+          title: SmartQKV API
+          version: ${smartquark.version}
+          description: SmartQKV API
+          contact:
+            email: alessiosaltarin@gmail.com
+            name: Alessio Saltarin
+    scan:
+      exclude:
+        classes: net.littlelite.controller.web.Home

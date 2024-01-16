@@ -14,13 +14,15 @@ val quarkusPlatformVersion: String by project
 
 
 dependencies {
+    annotationProcessor("io.quarkus:quarkus-panache-common")
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-resteasy-reactive-qute")
+    implementation("io.quarkus:quarkus-resteasy-reactive-jsonb")
     implementation("io.quarkus:quarkus-mongodb-panache")
-    annotationProcessor("io.quarkus:quarkus-panache-common")
     implementation("io.quarkus:quarkus-smallrye-openapi")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-config-yaml")
+    implementation("io.quarkus:quarkus-smallrye-health")
     testImplementation("io.quarkus:quarkus-junit5")
 }
 

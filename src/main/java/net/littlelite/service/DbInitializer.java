@@ -8,6 +8,8 @@
 package net.littlelite.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import net.littlelite.dao.BookDao;
 import net.littlelite.model.Author;
 import net.littlelite.model.Book;
 import net.littlelite.model.Status;
@@ -21,19 +23,22 @@ public class DbInitializer
 {
     private static final Logger LOG = LoggerFactory.getLogger(DbInitializer.class);
 
+    @Inject
+    BookDao bookDao;
+
     public void populateDb()
     {
-        if (Book.getSize() < 1)
+        var size = this.bookDao.getSize();
+        if (size < 1)
         {
             LOG.info("Populating DB...");
-            this.getBooks().forEach(Book::create);
+            this.getBooks().forEach(this.bookDao::create);
             LOG.info("Done populating DB.");
-            var size = Book.getSize();
             LOG.info("Books in MongoDB: " + size);
         }
         else
         {
-            LOG.info("DB already populated with " + Book.getSize() + " books.");
+            LOG.info("DB already populated with " + size + " books.");
         }
     }
 
