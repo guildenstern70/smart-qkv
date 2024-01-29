@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 @QuarkusTest
-@DisplayName("Database Connection Test")
+@DisplayName("Database")
 public class ConnectionTest
 {
     @Inject
     DbInitializer dbService;
 
     @Test
-    @DisplayName("should be connected with database")
+    @DisplayName("should be connected and running")
     void testDbConnection()
     {
         assertThat(dbService).isNotNull();
