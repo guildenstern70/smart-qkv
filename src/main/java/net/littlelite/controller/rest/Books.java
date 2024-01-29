@@ -1,7 +1,7 @@
 /*
  * The Smart QKV Project
  * Copyright (c) Alessio Saltarin, 2024
- * This software is licensed under MIT License
+ * This software is licensed under ISC License
  * See LICENSE
  */
 
@@ -12,7 +12,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.core.Response;
 import net.littlelite.dao.BookDao;
+import net.littlelite.dto.BookDto;
 import net.littlelite.model.Book;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
@@ -29,9 +31,12 @@ public class Books
 
     @GET
     @Operation(summary = "Get all books")
-    public List<Book> list()
+    public Response list()
     {
-        return this.bookDao.listAll();
+        var books = this.bookDao.listAll();
+        return Response
+                .ok(books.stream().map(BookDto::fromEntity))
+                .build();
     }
 
     @POST

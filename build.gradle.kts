@@ -17,7 +17,7 @@ dependencies {
     annotationProcessor("io.quarkus:quarkus-panache-common")
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-resteasy-reactive-qute")
-    implementation("io.quarkus:quarkus-resteasy-reactive-jsonb")
+    implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("io.quarkus:quarkus-mongodb-panache")
     implementation("io.quarkus:quarkus-smallrye-openapi")
     implementation("io.quarkus:quarkus-arc")

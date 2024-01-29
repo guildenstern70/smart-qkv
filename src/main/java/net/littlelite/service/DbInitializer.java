@@ -1,7 +1,7 @@
 /*
  * The Smart QKV Project
  * Copyright (c) Alessio Saltarin, 2024
- * This software is licensed under MIT License
+ * This software is licensed under ISC License
  * See LICENSE
  */
 
