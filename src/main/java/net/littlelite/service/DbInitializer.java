@@ -26,6 +26,11 @@ public class DbInitializer
     @Inject
     BookDao bookDao;
 
+    public boolean isDbConnected()
+    {
+        return this.bookDao.count() > 0;
+    }
+
     public void populateDb()
     {
         var size = this.bookDao.getSize();
